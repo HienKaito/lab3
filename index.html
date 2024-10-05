@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Form</title>
+    <style>
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>    
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <img src="logoIU.png" alt='Logo IU' class='center'>
+        <h1 class="text-center">Survey</h1>
+        <p class="text-center">If you have a moment, we'd appreciate it if you would fill out this survey.</p>
+        <form action="Result.jsp" method="post">
+            <div class="form-group">
+                <label for="first-name">First Name:</label>
+                <input type="text" class="form-control" id="first-name" name="first-name" required>
+            </div>
+            <div class="form-group">
+                <label for="last-name">Last Name:</label>
+                <input type="text" class="form-control" id="last-name" name="last-name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" class="form-control" id="dob" name="dob" required>
+            </div>
+            <div class="form-group">
+                <label>How did you hear about us?</label><br>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="search-engine" name="referral" value="search-engine">
+                    <label class="form-check-label" for="search-engine">Search engine</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="word-of-mouth" name="referral" value="word-of-mouth">
+                    <label class="form-check-label" for="word-of-mouth">Word of mouth</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="social-media" name="referral" value="social-media">
+                    <label class="form-check-label" for="social-media">Social Media</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="other" name="referral" value="other">
+                    <label class="form-check-label" for="other">Other</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Would you like to receive announcements about new CDs and special offers?</label><br>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="yes" name="announcements" value="yes">
+                    <label class="form-check-label" for="yes">YES, I'd like that.</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="no" name="announcements" value="no">
+                    <label class="form-check-label" for="no">NO, thank you.</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Please contact me by:</label><br>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="email-contact" name="contact-method" value="email">
+                    <label class="form-check-label" for="email-contact">Email</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="postal-mail-contact" name="contact-method" value="postal-mail">
+                    <label class="form-check-label" for="postal-mail-contact">Postal mail</label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <br>
+            <a href="tintuc.html">Nhấn vào đây để xem tin tức</a>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
