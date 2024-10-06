@@ -1,90 +1,267 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Survey Form</title>
-    <style>
-        .center {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
-    </style>    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    :root {
+      --primary-color: #333;
+      --background-color: #fff;
+      --text-color: #000;
+      --link-color: #007bff;
+      --header-bg-color: #f8f9fa;
+      --footer-bg-color: #f1f1f1;
 
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+      /* Dark mode variables */
+      --dark-primary-color: #fff;
+      --dark-background-color: #121212;
+      --dark-text-color: #f1f1f1;
+      --dark-link-color: #ffa500;
+      --dark-header-bg-color: #1f1f1f;
+      --dark-footer-bg-color: #292929;
+    }
+
+    [data-theme="dark"] {
+      --primary-color: var(--dark-primary-color);
+      --background-color: var(--dark-background-color);
+      --text-color: var(--dark-text-color);
+      --link-color: var(--dark-link-color);
+      --header-bg-color: var(--dark-header-bg-color);
+      --footer-bg-color: var(--dark-footer-bg-color);
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-color);
+      margin: 0;
+    }
+
+    header {
+      background-color: var(--header-bg-color);
+      padding: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      gap: 15px;
+    }
+
+    nav ul li {
+      display: inline;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: var(--link-color);
+      font-weight: 700;
+    }
+
+    .toggle-theme {
+      cursor: pointer;
+      padding: 5px 10px;
+      border: none;
+      background-color: var(--primary-color);
+      color: var(--background-color);
+      border-radius: 4px;
+      font-size: 16px;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .projects, .work-experience, .education {
+      padding: 20px;
+      background-color: var(--header-bg-color);
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .reviews {
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .review-card {
+      background-color: var(--header-bg-color);
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: var(--header-bg-color);
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-form label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .contact-form button {
+      background-color: var(--link-color);
+      color: var(--primary-color);
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: var(--footer-bg-color);
+      color: var(--text-color);
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container mt-5">
-        <img src="logoIU.png" alt='Logo IU' class='center'>
-        <h1 class="text-center">Survey</h1>
-        <p class="text-center">If you have a moment, we'd appreciate it if you would fill out this survey.</p>
-        <form action="Result.jsp" method="post">
-            <div class="form-group">
-                <label for="first-name">First Name:</label>
-                <input type="text" class="form-control" id="first-name" name="first-name" required>
-            </div>
-            <div class="form-group">
-                <label for="last-name">Last Name:</label>
-                <input type="text" class="form-control" id="last-name" name="last-name" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" class="form-control" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="dob">Date of Birth:</label>
-                <input type="date" class="form-control" id="dob" name="dob" required>
-            </div>
-            <div class="form-group">
-                <label>How did you hear about us?</label><br>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" id="search-engine" name="referral" value="search-engine">
-                    <label class="form-check-label" for="search-engine">Search engine</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" id="word-of-mouth" name="referral" value="word-of-mouth">
-                    <label class="form-check-label" for="word-of-mouth">Word of mouth</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" id="social-media" name="referral" value="social-media">
-                    <label class="form-check-label" for="social-media">Social Media</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" id="other" name="referral" value="other">
-                    <label class="form-check-label" for="other">Other</label>
-                </div>
-            </div>
-            <div class="form-group">
-                <label>Would you like to receive announcements about new CDs and special offers?</label><br>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" id="yes" name="announcements" value="yes">
-                    <label class="form-check-label" for="yes">YES, I'd like that.</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" id="no" name="announcements" value="no">
-                    <label class="form-check-label" for="no">NO, thank you.</label>
-                </div>
-            </div>
-            <div class="form-group">
-                <label>Please contact me by:</label><br>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="email-contact" name="contact-method" value="email">
-                    <label class="form-check-label" for="email-contact">Email</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="postal-mail-contact" name="contact-method" value="postal-mail">
-                    <label class="form-check-label" for="postal-mail-contact">Postal mail</label>
-                </div>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-            <br>
-            <a href="tintuc.html">Nhấn vào đây để xem tin tức</a>
-        </form>
-    </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <header>
+    <div class="header-container">
+      <div class="logo">Nguyễn Đức Hiền</div>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">Articles</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="toggle-theme" onclick="toggleTheme()">Toggle Dark Mode</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="intro">
+        <div style="text-align: center;">
+      <h1>Fullstack Developer</h1>
+      <p>A Junior Fullstack Developer</p>
+        </div>
+    </section>
+
+    <section class="content-grid">
+      <div class="projects">
+        <h2>Projects</h2>
+        <ul>
+          <li>Library Management</li>
+          <li>Minesweeper</li>
+          <li>Hospital Booking System</li>
+          <li>Good Delivery</li>
+        </ul>
+      </div>
+
+      <div class="work-experience">
+        <h2>Work Experience</h2>
+        <p><strong>roadmap.sh</strong><br>Solved all the frontend projects</p>
+        <a href="#">Visit my Profile</a>
+      </div>
+
+      <div class="education">
+        <h2>Education</h2>
+        <p>Graduated with 2.88 CGPA.</p>
+        <h3>Courses I took:</h3>
+        <ul>
+          <li>Object Oriented Programming</li>
+          <li>Data Structures and Algorithms</li>
+          <li>Web Application Development</li>
+          <li>Principles of Database Management</li>
+          <li>Scalable and Distributed Computing</li>
+          <li>Software Engineering</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="reviews">
+      <h2>Reviews from my Teachers</h2>
+      <div class="review-card">
+        <p>Hiền was a brilliant student; always stood out with his assignments.</p>
+        <p><strong>N.V.Sinh</strong><br>Web App Professor</p>
+      </div>
+      <div class="review-card">
+        <p>Approached the math uniquely.</p>
+        <p><strong>Nguyen Dinh</strong><br>Math Professor</p>
+      </div>
+      <div class="review-card">
+        <p>Find a different way to get the solution.</p>
+        <p><strong>V.T.L.Phuong</strong><br>Network Professor</p>
+      </div>
+    </section>
+
+    <section class="contact-form">
+      <h2>Contact Me</h2>
+      <form>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; ITITIU 22053</p>
+  </footer>
+
+  <script>
+    const toggleTheme = () => {
+      const currentTheme = document.body.getAttribute('data-theme');
+      document.body.setAttribute('data-theme', currentTheme === 'dark' ? 'light' : 'dark');
+    };
+  </script>
+
 </body>
 </html>
